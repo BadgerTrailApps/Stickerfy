@@ -17,5 +17,5 @@ python Stickerfy.py <image_path>
 The script will then generate a new PNG file with the "_stickerfy" suffix.
 
 ## Example
-![The original image.](/example.png)
-![The result image.](/example_stickerfy.png)
+<img src="/example.png" width="200" height="200"> (example.png)
+<img src="/example_stickerfy.png" width="200" height="200"> (example_stickerfy.png)
