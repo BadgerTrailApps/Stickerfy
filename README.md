@@ -27,8 +27,4 @@ python stickerfy.py image.png --output image_stickerfy.png --border_color 255 0 
 ```
 
 ## Example
-<p align="center">
-  <img src="images/example.png" alt="" style="vertical-align: middle;">
-  ➡️
-  <img src="images/example_stickerfy.png" alt="" style="vertical-align: middle;">
-</p>
+![](example.png)
