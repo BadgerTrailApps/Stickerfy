@@ -1,6 +1,6 @@
 # Stickerfy.py 🎨✨
 
-A simple Python tool to transform any image into a **512×512 px sticker** with a smooth border and subtle drop shadow — perfect for **Telegram, WhatsApp, Discord** and other sticker formats.
+A simple Python tool to transform PNGs with transparency into a **512×512 px sticker** with a smooth border and subtle drop shadow — perfect for **Telegram, WhatsApp, Discord** and other sticker formats.
 
 ## Features
 - **Automatic cropping** – removes unnecessary transparency around your image
