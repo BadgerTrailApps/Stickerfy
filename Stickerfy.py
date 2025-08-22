@@ -41,8 +41,7 @@ def stickerfy(image_path, output_path="sticker.png", border_color=(255, 255, 255
     blur_radius = border_size * scale * 0.6
     mask_up = mask_up.filter(ImageFilter.GaussianBlur(blur_radius))
 
-    # Convert to binary again: anything not fully transparent gets max alpha.
-    # This gives sharp border edges after downscaling.
+    # Convert to binary again: anything not fully transparent gets max alpha. Creates sharp border edges after downscaling.
     thresholded = mask_up.point(lambda p: 255 if p > 0 else 0, mode='L')
 
     # Downscale back to sticker size with sharp edges.
@@ -50,11 +49,11 @@ def stickerfy(image_path, output_path="sticker.png", border_color=(255, 255, 255
 
     # Create a solid border layer with the correct size.
     border = Image.new("RGBA", (sticker_size, sticker_size), border_color + (255,))
-    border.putalpha(expanded_mask)  # Apply the expanded mask.
+    border.putalpha(expanded_mask)
 
     # Add drop shadow.
     shadow = Image.new("RGBA", (sticker_size, sticker_size), (0, 0, 0, 0))
-    shadow_mask = expanded_mask.filter(ImageFilter.GaussianBlur(3))  # Blur mask for shadow.
+    shadow_mask = expanded_mask.filter(ImageFilter.GaussianBlur(3))
     shadow.paste((0, 0, 0, 100), (shadow_offset, shadow_offset), shadow_mask)
 
     # Merge all layers into the final sticker.
@@ -65,7 +64,6 @@ def stickerfy(image_path, output_path="sticker.png", border_color=(255, 255, 255
     final_sticker.save(output_path, "PNG")
     print(f"✅ Sticker saved as {output_path}")
 
-# Run the script when used as a CLI tool.
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("❌ Provide an image!\ne.g.: python stickerfy.py image.png")
